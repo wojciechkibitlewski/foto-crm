@@ -10,7 +10,8 @@
 @section('content')
     <main id="content">
        <!-- hero  -->
-        <div class="w-full h-screen bg-cover bg-center bg-fixed bg-gradient-to-br from-slate-950 to-cyan-700" style="background-image: url({{asset('/storage/hero.jpg')}})">
+        <!-- <div class="w-full h-screen bg-cover bg-center bg-fixed bg-gradient-to-br from-slate-950 to-cyan-700" style="background-image: url({{asset('/storage/hero.jpg')}})"> -->
+        <div class="w-full h-screen bg-cover bg-center bg-fixed bg-gradient-to-br from-slate-950 to-cyan-700">
             <!-- navigation  -->
             @include('components.navigation-guest')
             <section class="h-screen max-w-6xl mx-auto sm:px-6 lg:px-8 mt-6 p-4 mt-[20%] md:mt-[7%] ">
