@@ -33,36 +33,10 @@
 
         @livewireStyles
 </head>
-<body class="antialiased ">
-    <main class="flex flex-col justify-between md:flex-row h-screen w-screen">
-        <div class="w-full basis-1/12 md:basis-1/2 bg-gradient-to-br from-slate-950 to-cyan-700">
-            <div class="p-4 md:absolute md:left-10 md:top-10  h-10 w-10">
-                <a href="/" title="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
-                    class="w-10 h-10 text-white">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-                    </svg>
-                </a>
-            </div>
-
-        </div>
-        <div class="w-full basis-11/12 md:basis-1/2 bg-white flex flex-col content-center justify-between">
-            
-            <div class="w-full px-4 md:mx-auto md:w-[50%] text-left mt-[50%] md:mt-[20%]">
-                @yield('content') 
-                
-            </div>
-            <div class="mx-auto w-full text-center border-t p-4 ">
-                <a class="block inline border-r px-2" href="" title="">Terms</a>
-                <a class="block inline border-r px-2" href="" title="">Privacy policy</a>
-                <a class="block inline px-2" href="" title="">Contact us</a>
-            </div>
-            
-
-        </div>
-    </main>
+<body class="antialiased  [&>*]:leading-[1.6]">
+    @yield('content') 
+      
     
-
     @livewireScripts
 </body>
 </html>

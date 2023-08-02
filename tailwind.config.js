@@ -9,6 +9,7 @@ export default {
         './resources/views/**/*.blade.php',
         './resources/**/*.js',
         './resources/**/*.vue',
+        './node_modules/tw-elements/dist/js/**/*.js',
     ],
 
     theme: {
@@ -19,5 +20,9 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        require("tw-elements/dist/plugin"),
+    ],
+    darkMode: "class"
 };

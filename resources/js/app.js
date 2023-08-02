@@ -1,4 +1,6 @@
 import './bootstrap';
+import './tailwind-elements';
+
 
 import Alpine from 'alpinejs';
 
