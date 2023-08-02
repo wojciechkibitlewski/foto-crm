@@ -1,10 +1,20 @@
-<x-guest-layout>
+@extends('layouts.auth')
+ 
+    @section('title', 'Reset password')
+    @section('description', ' ')
+
+    @section('canonical', ' ')
+    @section('ogImage', ' ')
+
+ 
+@section('content')
+    <h1 class="text-3xl font-black mb-4">Reset password</h1>
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
-
+        
         <!-- Password Reset Token -->
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
-
+        
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -30,10 +40,12 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Reset Password') }}
-            </x-primary-button>
+        <div class="mt-4">
+            <button type="submit" class="relative w-full text-center p-3 bg-slate-700 text-white font-black rounded-xl">
+            Reset Password
+            </button>    
         </div>
     </form>
-</x-guest-layout>
+
+          
+    @endsection
