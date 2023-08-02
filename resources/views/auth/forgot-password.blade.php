@@ -29,7 +29,7 @@
         </div>
     </form>
 
-    <p class="text-center mt-4">Don't have an account? <a href="/register" class="font-black" title="Sign in">Join now</a></p>
+    <p class="text-center mt-4">Don't have an account? <a href="{{ route('register') }}" class="font-black" title="Sign in">Join now</a></p>
 
           
     @endsection

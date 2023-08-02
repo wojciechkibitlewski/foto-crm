@@ -34,9 +34,9 @@
         @livewireStyles
 </head>
 <body class="antialiased ">
-    <main class="flex flex-row h-screen w-screen">
-        <div class="basis-1/2 bg-slate-700 ">
-            <div class="absolute left-10 top-10  h-10 w-10">
+    <main class="flex flex-col justify-between md:flex-row h-screen w-screen">
+        <div class="w-full basis-1/12 md:basis-1/2 bg-slate-700 ">
+            <div class="p-4 md:absolute md:left-10 md:top-10  h-10 w-10">
                 <a href="/" title="">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 
                     class="w-10 h-10 text-white">
@@ -46,12 +46,10 @@
             </div>
 
         </div>
-        <div class="basis-1/2 bg-white flex flex-col content-center justify-between">
+        <div class="w-full basis-11/12 md:basis-1/2 bg-white flex flex-col content-center justify-between">
             
-            <div class="mx-auto w-[50%] text-left mt-[20%]">
-                @yield('content')
-                
-            
+            <div class="w-full px-4 md:mx-auto md:w-[50%] text-left mt-[50%] md:mt-[20%]">
+                @yield('content') 
                 
             </div>
             <div class="mx-auto w-full text-center border-t p-4 ">

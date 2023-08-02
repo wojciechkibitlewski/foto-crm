@@ -60,7 +60,7 @@
         </div>
     </form>
 
-    <p class="text-center mt-4">Have an account? <a href="/login" class="font-black" title="Sign in">Sign in</a></p>
+    <p class="text-center mt-4">Have an account? <a href="{{ route('login') }}" class="font-black" title="Sign in">Sign in</a></p>
 
           
     @endsection
