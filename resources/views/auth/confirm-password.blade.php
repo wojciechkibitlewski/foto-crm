@@ -28,7 +28,7 @@
         </div>
 
         <div class="mt-4">
-            <button type="submit" class="relative w-full text-center p-3 bg-slate-700 text-white font-black rounded-xl">
+            <button type="submit" class="relative w-full text-center p-3 bg-red-700 text-white font-black rounded-xl">
             Confirm
             </button>    
         </div>

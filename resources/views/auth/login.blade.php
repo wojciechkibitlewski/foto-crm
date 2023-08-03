@@ -47,8 +47,8 @@
         </div>
 
         <div class="mt-4">
-            <button type="submit" class="relative w-full text-center p-3 bg-slate-700 text-white font-black rounded-xl">
-            Sign in
+            <button type="submit" class="relative w-full text-center p-3 bg-red-700 text-white font-black rounded-xl">
+            {{ __('auth.signin')}}
             </button>    
         </div>
     </form>
