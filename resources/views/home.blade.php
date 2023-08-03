@@ -8,7 +8,7 @@
 
  
 @section('content')
-    <main id="content">
+    <main>
        <!-- hero  -->
         <!-- <div class="w-full h-screen bg-cover bg-center bg-fixed bg-gradient-to-br from-slate-950 to-cyan-700" style="background-image: url({{asset('/storage/hero.jpg')}})"> -->
         <div class="w-full h-screen bg-cover bg-center bg-fixed bg-gradient-to-br from-slate-950 to-cyan-700">

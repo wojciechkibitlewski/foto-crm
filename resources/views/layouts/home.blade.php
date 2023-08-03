@@ -33,9 +33,12 @@
 
         @livewireStyles
 </head>
-<body class="antialiased  [&>*]:leading-[1.6]">
+<body class="antialiased [&>*]:leading-[3.6]">
+    <div id="content">
     @yield('content') 
-      
+    
+    </div>
+    @include('components.navigation-bottom')
     
     @livewireScripts
 </body>
