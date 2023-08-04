@@ -12,10 +12,10 @@
 
         </div>
         <div class="mt-3">
-            <a href="{{ route('login') }}" title="Sign in" 
+            <a href="{{ route('login') }}" title="{{ __('auth.signin')}}" 
             class="hidden md:inline bg-white p-4 rounded-xl font-bold px-6 mr-4"
             >{{ __('auth.signin')}}</a>
-            <a href="{{ route('register') }}" title="Join now" 
+            <a href="{{ route('register') }}" title="{{ __('auth.joinnow')}}" 
             class="bg-red-700 text-white p-3 md:p-4 rounded-xl font-bold px-4 mr-2 md:px-6"
             >{{ __('auth.joinnow')}}</a>
 

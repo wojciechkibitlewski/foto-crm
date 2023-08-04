@@ -53,9 +53,9 @@
                 
             </div>
             <div class="mx-auto w-full text-center border-t p-4 ">
-                <a class="block inline border-r px-2" href="" title="">Terms</a>
-                <a class="block inline border-r px-2" href="" title="">Privacy policy</a>
-                <a class="block inline px-2" href="" title="">Contact us</a>
+                <a class="block inline border-r px-2" href="" title="">{{ __('home.nav_terms')}}</a>
+                <a class="block inline border-r px-2" href="" title="">{{ __('home.nav_policy')}}</a>
+                <a class="block inline px-2" href="" title="">{{ __('home.nav_contact')}}</a>
             </div>
             
 

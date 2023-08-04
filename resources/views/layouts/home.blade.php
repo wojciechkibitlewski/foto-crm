@@ -33,7 +33,7 @@
 
         @livewireStyles
 </head>
-<body class="antialiased [&>*]:leading-[3.6]">
+<body class="antialiased [&>*]:leading-[2.2]">
     <div id="content">
     @yield('content') 
     

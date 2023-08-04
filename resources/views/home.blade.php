@@ -23,18 +23,10 @@
         </div>
         <!-- body content  -->
         <section class="h-screen max-w-6xl mx-auto sm:px-6 lg:px-8 mt-6 p-4 text-center">
-            <h2 class="text-3xl my-4 ">Body header</h2>
-            <ul>
-            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                <li>
-                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                        {{ $properties['native'] }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+            <h2 class="text-3xl my-4 ">{{ __('home.bodyH1')}}</h2>
+            
         </section>
-        
+        @include('components.footer')
     </main>
     <footer>
 
