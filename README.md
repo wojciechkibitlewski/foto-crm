@@ -1,4 +1,4 @@
-## About this Shotico
+## About this
 Laravel a web application with Breeze, LiveWire and Tailwind.
 <p ><a href="https://laravel.com/docs/10.x" target="_blank">Laravel</a></p>
 <p ><a href="https://laravel.com/docs/10.x/starter-kits#laravel-breeze" target="_blank">Laravel Breeze</a></p>
