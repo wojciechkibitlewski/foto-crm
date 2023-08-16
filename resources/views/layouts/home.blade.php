@@ -38,7 +38,7 @@
     @yield('content') 
     
     </div>
-    @include('components.navigation-bottom')
+    @include('home.navigation-bottom')
     
     @livewireScripts
 </body>
