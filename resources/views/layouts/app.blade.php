@@ -38,25 +38,25 @@
         <!-- navigation  -->
         @include('home.navigation-user')
         
-        <main class="md:flex md:flex-row bg-slate-50 mt-[70px] ">
+        <main class="bg-white mt-[70px] md:flex md:flex-row ">
             <div class="hidden md:flex m-0 p-0 basis-1/6 min-w-[250px]">
                 @include('home.sidenav')
 
                 <!-- sidenav  -->
             </div>
-            <div class="static full md:basis-5/6 mt-6">
+            <div class="static md:basis-5/6 ">
                 @if (isset($breadcrumb))
-                    <div class="px-4 ">
+                    <div class="px-4 pt-6">
                             {{ $breadcrumb }}                       
                     </div>
                 @endif
                 <!-- header  -->
                 @if (isset($header))
-                    <header class="">
+                    <header class="-mt-2">
                             {{ $header }}                       
                     </header>
                 @endif    
-                <section class="h-screen text-left py-4 px-4 ">
+                <section class="h-screen text-left pl-4">
                     <!-- body content  -->
                     {{ $slot }} 
                 </section>

@@ -5,8 +5,10 @@ import {
   Dropdown,
   Sidenav,
   Ripple,
+  Input,
   initTE,
   Datatable,
+  Select,
 } from "tw-elements";
 
-initTE({ Sidenav, Ripple,Collapse, Dropdown, Datatable });
+initTE({ Sidenav, Ripple,Collapse, Dropdown, Datatable,Input,Select });
