@@ -32,6 +32,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         @livewireStyles
+        @if (isset($js))
+            {{ $js }}                       
+        @endif
 </head>
 <body class="antialiased ">
     <div id="content">

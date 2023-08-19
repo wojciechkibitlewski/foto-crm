@@ -68,8 +68,58 @@ class ProductsController extends Controller
 
     public function edit(Request $request, string $id)
     {
+        $productcategory = ProductCategory::latest()->get();
         $product = Product::findOrFail($id);
-        return view('products.edit',compact('product'));
+        return view('products.edit',compact('product','productcategory'));
         
+    }
+
+    public function update(Request $req)
+    {
+        $req->validate([
+            'sku' => 'required',
+            'name' => 'required',
+        ]);
+
+        //dd($inputs);
+        try {
+            $product = Product::findorFail($req->id);
+            $product->sku = $req->sku;
+            $product->name = $req->name;
+            $product->desc = isset($req->desc) ? $req->desc : ' ';
+            $product->price = isset($req->price) ? $req->price : ' ';
+            $product->quant = isset($req->quant) ? $req->quant : ' ';
+            $product->category_id = $req->category_id;
+
+            //dd($product);
+            $product->save();
+
+            return redirect()
+                    ->route('products.index')
+                    ->with('success','Produkt updated successfully.');
+            
+        } catch (\Exception $ex) {
+            return redirect()
+                    ->route('products.index')
+                    ->with('error', 'An error occurred while saving. Please try again.');
+        }
+
+    }
+
+    public function destroy(Request $request)
+    {
+        $inputs = $request->all();
+        //dd($inputs);
+        try {
+            Product::whereId($inputs['id'])->delete();
+            return redirect()
+                    ->route('products.index')
+                    ->with('success','Product deleted successfully.');
+            
+        } catch (\Exception $ex) {
+            return redirect()
+                    ->route('products.index')
+                    ->with('error', 'An error occurred while saving. Please try again.');
+        }
     }
 }

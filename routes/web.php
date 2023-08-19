@@ -7,6 +7,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SalesSourceController;
+use App\Http\Controllers\SalesTypeController;
+
+use App\Http\Controllers\ClientController;
 
 
 /*
@@ -45,7 +48,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         Route::get('settings/productcategory/index', [ProductCategoryController::class, 'index'])->name('settings.productcategory.index');
         Route::get('settings/productcategory/create', [ProductCategoryController::class, 'create'])->name('settings.productcategory.create');
         Route::post('settings/productcategory/store', [ProductCategoryController::class, 'store'])->name('settings.productcategory.store');
-        Route::get('settings/productcategory/show', [ProductCategoryController::class, 'show'])->name('settings.productcategory.show');
+        Route::get('settings/productcategory/show/{id}', [ProductCategoryController::class, 'show'])->name('settings.productcategory.show');
         Route::get('settings/productcategory/edit/{id}', [ProductCategoryController::class, 'edit'])->name('settings.productcategory.edit');
         Route::patch('settings/productcategory/update', [ProductCategoryController::class, 'update'])->name('settings.productcategory.update');
         Route::delete('settings/productcategory/destroy', [ProductCategoryController::class, 'destroy'])->name('settings.productcategory.destroy');
@@ -53,10 +56,18 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         Route::get('settings/salessource/index', [SalesSourceController::class, 'index'])->name('settings.salessource.index');
         Route::get('settings/salessource/create', [SalesSourceController::class, 'create'])->name('settings.salessource.create');
         Route::post('settings/salessource/store', [SalesSourceController::class, 'store'])->name('settings.salessource.store');
-        Route::get('settings/salessource/show', [SalesSourceController::class, 'show'])->name('settings.salessource.show');
+        Route::get('settings/salessource/show/{id}', [SalesSourceController::class, 'show'])->name('settings.salessource.show');
         Route::get('settings/salessource/edit/{id}', [SalesSourceController::class, 'edit'])->name('settings.salessource.edit');
         Route::patch('settings/salessource/update', [SalesSourceController::class, 'update'])->name('settings.salessource.update');
         Route::delete('settings/salessource/destroy', [SalesSourceController::class, 'destroy'])->name('settings.salessource.destroy');
+
+        Route::get('settings/salestype/index', [SalesTypeController::class, 'index'])->name('settings.salestype.index');
+        Route::get('settings/salestype/create', [SalesTypeController::class, 'create'])->name('settings.salestype.create');
+        Route::post('settings/salestype/store', [SalesTypeController::class, 'store'])->name('settings.salestype.store');
+        Route::get('settings/salestype/show/{id}', [SalesTypeController::class, 'show'])->name('settings.salestype.show');
+        Route::get('settings/salestype/edit/{id}', [SalesTypeController::class, 'edit'])->name('settings.salestype.edit');
+        Route::patch('settings/salestype/update', [SalesTypeController::class, 'update'])->name('settings.salestype.update');
+        Route::delete('settings/salestype/destroy', [SalesTypeController::class, 'destroy'])->name('settings.salestype.destroy');
 
 
         Route::get('products/index', [ProductsController::class, 'index'])->name('products.index');
@@ -67,6 +78,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         Route::patch('products/update', [ProductsController::class, 'update'])->name('products.update');
         Route::delete('products/destroy', [ProductsController::class, 'destroy'])->name('products.destroy');
         
+        Route::get('clients/index', [ClientController::class, 'index'])->name('clients.index');
+        Route::get('clients/create', [ClientController::class, 'create'])->name('clients.create');
+        Route::post('clients/store', [ClientController::class, 'store'])->name('clients.store');
+        Route::get('clients/show/{id}', [ClientController::class, 'show'])->name('clients.show');
+        Route::get('clients/edit/{id}', [ClientController::class, 'edit'])->name('clients.edit');
+        Route::patch('clients/update', [ClientController::class, 'update'])->name('clients.update');
+        Route::delete('clients/destroy', [ClientController::class, 'destroy'])->name('clients.destroy');
+       
         
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

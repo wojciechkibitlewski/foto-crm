@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->fullText('name');
+            $table->string('email')->unique();
+            $table->string('phone')->unique();
+            $table->string('social');
+            $table->string('firm');
+            $table->longText('note');          
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');     
             $table->timestamps();
         });
     }
