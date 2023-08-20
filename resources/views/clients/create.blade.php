@@ -88,7 +88,7 @@
                         autocomplete="social" />
                         <x-input-error :messages="$errors->get('social')" class="mt-2" />
                     </div>
-                    <!--social -->
+                    <!--firm -->
                     <div class="mb-4">
                         <x-input-label for="firm" :value="__('Firma')" />
                         <x-text-input id="firm" class="block mt-1 w-full " type="text" 

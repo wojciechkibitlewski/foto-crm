@@ -9,6 +9,7 @@ use Illuminate\View\View;
 use App\Models\Product;
 use App\Models\ProductCategory;
 
+
 class ProductsController extends Controller
 {
     public function index():View

@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+use App\Models\Product;
+
+class SearchProduct extends Component
+{   
+    public $products;
+    public $records;
+    public $selectedProductId;
+    public $quant = 1;
+    public $leadValue = 0;
+    public $selectedProducts = [];
+    public $selectedProductID;
+    public $selProd = [];
+
+
+    public function render()
+    {
+        $this->records = Product::select('*')->get();
+        return view('livewire.search-product');
+
+    }
+    public function addProductList()
+    {
+        $product = $this->records->firstWhere('id', $this->selectedProductID);
+        //$selProd = array();
+        
+        //array_push($selProd, ['product_id'=> $product['id']]);
+        //array_push($selProd, ['name'=> $product['name']]);
+        //array_push($selProd, ['quant'=> $this->quant]);
+        //array_push($selProd, ['productValue'=> ($product['price']*$this->quant)]);
+        
+        $selProd = ['product_id'=> $product['id'], 'name'=> $product['name'],'quant'=> $this->quant,'productValue'=> ($product['price']*$this->quant) ];
+        
+        $this->leadValue += ($product['price']*$this->quant);
+        
+        $this->selectedProducts[] = $selProd;
+        //dd($this->selectedProducts);
+    }
+    
+
+    public function removeProduct($index)
+    {
+        $product = $this->selectedProducts[$index];
+        $this->leadValue -= $product['productValue'];
+        array_splice($this->selectedProducts, $index, 1);
+    }
+
+    
+}

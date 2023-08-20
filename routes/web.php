@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SalesSourceController;
 use App\Http\Controllers\SalesTypeController;
+use App\Http\Controllers\LeadController;
 
 use App\Http\Controllers\ClientController;
 
@@ -86,6 +87,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         Route::patch('clients/update', [ClientController::class, 'update'])->name('clients.update');
         Route::delete('clients/destroy', [ClientController::class, 'destroy'])->name('clients.destroy');
        
+        Route::get('leads/index', [LeadController::class, 'index'])->name('leads.index');
+        Route::get('leads/create', [LeadController::class, 'create'])->name('leads.create');
+        Route::post('leads/store', [LeadController::class, 'store'])->name('leads.store');
+        Route::get('leads/show/{id}', [LeadController::class, 'show'])->name('leads.show');
+        Route::get('leads/edit/{id}', [LeadController::class, 'edit'])->name('leads.edit');
+        Route::patch('leads/update', [LeadController::class, 'update'])->name('leads.update');
+        Route::delete('leads/destroy', [LeadController::class, 'destroy'])->name('leads.destroy');
         
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

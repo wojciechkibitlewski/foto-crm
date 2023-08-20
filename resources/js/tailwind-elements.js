@@ -9,7 +9,9 @@ import {
   initTE,
   Datatable,
   Select,
+  Tab,
+  Timepicker,
 } from "tw-elements";
 
-initTE({ Sidenav, Ripple,Collapse, Dropdown, Datatable,Input,Select });
+initTE({ Sidenav, Ripple,Collapse, Dropdown, Datatable, Input, Select, Tab, Timepicker });
 

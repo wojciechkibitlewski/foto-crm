@@ -18,7 +18,8 @@ class Lead extends Model
         'type_id',
         'executionDate',
         'executionTime',
-        'user_id'
+        'user_id',
+        'client_id'
     ];
 
 }
