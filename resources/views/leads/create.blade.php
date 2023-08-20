@@ -177,12 +177,10 @@
                             id="tabs-product"
                             role="tabpanel"
                             aria-labelledby="tabs-product-tab">
-                                <livewire:search-product :products="$products" />
+                                <livewire:search-product />
 
                         </div>
-                    </div>
-
-                    
+                    </div>                   
 
                     <!--Submit button-->
                     <button type="submit" class="relative w-full text-center p-3 bg-blue-600 text-white font-black rounded-xl">

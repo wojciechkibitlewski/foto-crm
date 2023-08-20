@@ -19,7 +19,7 @@
             </div>
             <div class="w-[20%]">
                 <x-input-label class="block mb-2 w-full"  for="buttonAdd" :value="__('Akcja')" />      
-                    <button id="buttonAdd" wire:click="addProductList"
+                    <button id="buttonAdd" type="button" wire:click="addProductList"
                     class="block sm:inline text-sm md:text-base p-1 py-2 px-3 bg-sky-200  rounded-md">
                         Dodaj
                     </button>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="w-[20%]">
                     <x-input-label for="buttonDelete_{{ $index }}" :value="__('Akcja')" />      
-                    <button id="buttonDelete_{{ $index }}" class="block sm:inline text-sm md:text-base mt-1 p-1 py-2 px-3 bg-red-200 rounded-md" 
+                    <button id="buttonDelete_{{ $index }}" type="button" class="block sm:inline text-sm md:text-base mt-1 p-1 py-2 px-3 bg-red-200 rounded-md" 
                     wire:click="removeProduct({{ $index }})">Usuń</button>
                 </div>
             </div>
