@@ -70,8 +70,8 @@
                                 <td class="text-sm md:text-base border-grey-light border hover:bg-gray-100 p-1 md:p-3 ">{{ ++$i }}</td>
                                 <td class="text-sm md:text-base border-grey-light border hover:bg-gray-100 p-1 md:p-3 ">{{ $item->executionDate }}</td>
                                 <td class="text-sm md:text-base border-grey-light border hover:bg-gray-100 p-1 md:p-3 ">{{ $item->title }}</td>
-                                <td class="text-sm md:text-base border-grey-light border hover:bg-gray-100 p-1 md:p-3 ">{{ $item->client_id }}</td>
-                                <td class="text-sm md:text-base border-grey-light border hover:bg-gray-100 p-1 md:p-3 ">{{ $item->type_id }}</td>
+                                <td class="text-sm md:text-base border-grey-light border p-1 md:p-3 text-sky-500 underline"><a href="{{route('clients.show',$item->client_id)}}" title="">{{ Helper::getClientName($item->client_id) }}</a></td>
+                                <td class="text-sm md:text-base border-grey-light border hover:bg-gray-100 p-1 md:p-3 ">{{ Helper::getStateName($item->type_id) }}</td>
                                 <td class="text-sm md:text-base border-grey-light border hover:bg-gray-100 p-1 md:p-3 ">
                                         <form action="{{ route('leads.destroy') }}" method="POST">
                                             <a class="block sm:w-full sm:inline text-sm md:text-base p-1 px-3 bg-sky-200 rounded mr-2 mb-2" href="{{ route('leads.show',$item->id) }}">Show</a>

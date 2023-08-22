@@ -14,6 +14,7 @@ class Lead extends Model
         'note',
         'noteForClient',
         'leadValue',
+        'advanceValue',
         'source_id',
         'type_id',
         'executionDate',

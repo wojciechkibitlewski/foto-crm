@@ -6,6 +6,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
+
 
 use App\Models\Lead;
 use App\Models\LeadProduct;
@@ -29,7 +31,6 @@ class LeadController extends Controller
         $clients = Client::select('name', 'phone')->orderBy('name')->get();
         $sources = Salessource::orderBy('source')->get();
         $types = Salestype::orderBy('order')->get();
-
         return view('leads.create',compact('products', 'clients', 'sources','types'));
     }
 
@@ -87,8 +88,9 @@ class LeadController extends Controller
                 foreach ($inputs['product_id'] as $key=>$value) {
                     $leadproduct = new LeadProduct;
                     $leadproduct->lead_id = $lead->id;
-                    $leadproduct->product_id = $value;
-                    $leadproduct->quant =$inputs['product_id'][$key];
+                    $leadproduct->product_id = $inputs['product_id'][$key];
+                    $leadproduct->quant =$inputs['product_quant'][$key];
+                    $leadproduct->product_price =$inputs['product_price'][$key];
                     $leadproduct->user_id =  $request->user()->id;
     
                     $leadproduct->save();
@@ -99,6 +101,71 @@ class LeadController extends Controller
             
         }
         
+    }
+
+    public function show(Request $request, string $id)
+    {
+        $lead = DB::table('leads')->where('id', $id)->first();
+        $client = DB::table('clients')->where('id', $lead->client_id)->first();
+        $leadProduct = DB::table('lead_products')->where('lead_id', $lead->id)->orderBy('product_id')->get();
+        $sources = Salessource::orderBy('source')->get();
+        $types = Salestype::orderBy('order')->get();
+        $products = Product::select('id','name', 'sku')->orderBy('sku')->get();
+        
+        
+        //dd($leadProduct);
+        return view('leads.show',compact('lead', 'client', 'leadProduct'));
+    }
+
+    public function addProducts (Request $request)
+    {
+        $inputs = $request->all();
+        //$lead = DB::table('leads')->where('id', $request['lead_id'])->first();
+        $lead = Lead::find($request['lead_id']);
+        
+        //$leadValue = $lead->leadValue;
+        if(!empty($inputs['product_id'])){
+            foreach ($inputs['product_id'] as $key=>$value) {
+                $leadproduct = new LeadProduct;
+                $leadproduct->lead_id = $request['lead_id'];
+                $leadproduct->product_id = $inputs['product_id'][$key];
+                $leadproduct->quant =$inputs['product_quant'][$key];
+                $leadproduct->product_price =$inputs['product_price'][$key];
+                $leadproduct->user_id =  $request->user()->id;
+                
+                $lead->leadValue += ($leadproduct->product_price*$leadproduct->quant);
+                
+                $leadproduct->save();
+            }
+            // update leadvalue in Lead
+
+            $lead->save();
+        }
+        return redirect()->route('leads.show', $request['lead_id']);
+    }
+
+    public function update(Request $req)
+    {
+        
+        //dd($inputs);
+        try {
+            $lead = Lead::findorFail($req->lead_id);
+            if(isset($req->advanceValue)){
+                $lead->advanceValue += isset($req->advanceValue) ? $req->advanceValue : ' ';
+            }
+            $lead->note = isset($req->note) ? $req->note : ' ';
+            $lead->save();
+
+            return redirect()
+                    ->route('leads.show', $req->lead_id)
+                    ->with('success','Zamóienie updated successfully.');
+            
+        } catch (\Exception $ex) {
+            return redirect()
+                    ->route('leads.show', $req->lead_id)
+                    ->with('error', 'An error occurred while saving. Please try again.');
+        }
+
     }
 
     public function destroy(Request $request)

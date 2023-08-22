@@ -11,8 +11,9 @@ class LeadProduct extends Model
 
     protected $fillable = [
         'lead_id',
-        'roduct_id',
+        'product_id',
         'quant',
+        'product_price',
         'user_id',
     ];
 }

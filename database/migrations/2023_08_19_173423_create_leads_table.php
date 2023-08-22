@@ -17,6 +17,8 @@ return new class extends Migration
             $table->longText('note');          
             $table->longText('noteForClient');          
             $table->float('leadValue'); 
+            $table->float('advanceValue'); 
+
             $table->unsignedBigInteger('source_id');
             $table->foreign('source_id')->references('id')->on('salessources');     
             $table->unsignedBigInteger('type_id');

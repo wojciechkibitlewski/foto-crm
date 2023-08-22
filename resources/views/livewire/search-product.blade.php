@@ -1,4 +1,5 @@
 <div>
+    
     <div class="relative mb-[100px] p-4 bg-gray-50">
         <div class="flex flex-row">
             <div class="w-[60%] mr-4">
@@ -14,7 +15,7 @@
                 <x-input-label class="block mb-2 w-full" for="quant" :value="__('ilość*')" />
                 <x-text-input id="quant" class="block mt-1 w-full mr-4" type="text" name="quant"
                     wire:model="quant"
-                    required autocomplete="quant" />
+                    required/>
                 <x-input-error :messages="$errors->get('quant')" class="mt-2" />
             </div>
             <div class="w-[20%]">
@@ -37,6 +38,9 @@
                     
                     <x-text-input id="product_id_{{ $index }}" type="hidden" name="product_id[]"
                     value="{{ $product['product_id'] }}"/>
+                    <x-text-input id="product_price_{{ $index }}" type="hidden" name="product_price[]"
+                    value="{{ $product['product_price'] }}"/>
+                    
                     <x-text-input id="product_quant_{{ $index }}" type="hidden" name="product_quant[]"
                     value="{{ $product['quant'] }}"/>
                     <x-text-input id="product_name_{{ $index }}" type="text" class="block mt-1 w-full " readonly name="product_name[]"
@@ -44,7 +48,7 @@
                 </div>
                 <div  class="w-[20%] mr-4">
                     <x-input-label for="product_price_{{ $index }}" :value="__('Wartość')" />                
-                    <x-text-input id="product_price_{{ $index }}" class="block mt-1 w-full" type="text" readonly name="product_price[]"
+                    <x-text-input id="product_price_{{ $index }}" class="block mt-1 w-full" type="text" readonly name="product_value[]"
                     value="{{ $product['productValue'] }}"/>
                 </div>
                 <div class="w-[20%]">

@@ -11,7 +11,8 @@ import {
   Select,
   Tab,
   Timepicker,
+  Modal,
 } from "tw-elements";
 
-initTE({ Sidenav, Ripple,Collapse, Dropdown, Datatable, Input, Select, Tab, Timepicker });
+initTE({ Sidenav, Ripple,Collapse, Dropdown, Datatable, Input, Select, Tab, Timepicker,Modal });
 

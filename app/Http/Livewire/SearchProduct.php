@@ -26,19 +26,10 @@ class SearchProduct extends Component
     public function addProductList()
     {
         $product = $this->records->firstWhere('id', $this->selectedProductID);
-        //$selProd = array();
-        
-        //array_push($selProd, ['product_id'=> $product['id']]);
-        //array_push($selProd, ['name'=> $product['name']]);
-        //array_push($selProd, ['quant'=> $this->quant]);
-        //array_push($selProd, ['productValue'=> ($product['price']*$this->quant)]);
-        
-        $selProd = ['product_id'=> $product['id'], 'name'=> $product['name'],'quant'=> $this->quant,'productValue'=> ($product['price']*$this->quant) ];
+        $selProd = ['product_id'=> $product['id'], 'name'=> $product['name'],'quant'=> $this->quant, 'product_price'=>$product['price'], 'productValue'=> ($product['price']*$this->quant) ];
         
         $this->leadValue += ($product['price']*$this->quant);
-        
         $this->selectedProducts[] = $selProd;
-        //dd($this->selectedProducts);
     }
     
 

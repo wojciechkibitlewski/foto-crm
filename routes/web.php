@@ -92,6 +92,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
         Route::post('leads/store', [LeadController::class, 'store'])->name('leads.store');
         Route::get('leads/show/{id}', [LeadController::class, 'show'])->name('leads.show');
         Route::get('leads/edit/{id}', [LeadController::class, 'edit'])->name('leads.edit');
+        Route::post('leads/addproducts', [LeadController::class, 'addProducts'])->name('leads.addProducts');
         Route::patch('leads/update', [LeadController::class, 'update'])->name('leads.update');
         Route::delete('leads/destroy', [LeadController::class, 'destroy'])->name('leads.destroy');
         
